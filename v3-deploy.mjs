@@ -7,6 +7,7 @@ const networks = {
   bscMainnet: 'bscMainnet',
   bscTestnet: 'bscTestnet',
   hardhat: 'hardhat',
+  immutableZkevmTestnet: 'immutableZkevmTestnet',
 }
 
 let network = process.env.NETWORK
@@ -16,14 +17,19 @@ if (!network || !networks[network]) {
 }
 
 await $`yarn workspace @pancakeswap/v3-core run hardhat run scripts/deploy.ts --network ${network}`
+console.log(chalk.blue('Deployed core'))
 
 await $`yarn workspace @pancakeswap/v3-periphery run hardhat run scripts/deploy2.ts --network ${network}`
+console.log(chalk.blue('Deployed periphery'))
 
 await $`yarn workspace @pancakeswap/smart-router run hardhat run scripts/deploy2.ts --network ${network}`
+console.log(chalk.blue('Deployed router'))
 
 await $`yarn workspace @pancakeswap/masterchef-v3 run hardhat run scripts/deploy2.ts --network ${network}`
+console.log(chalk.blue('Deployed masterchef'))
 
 await $`yarn workspace @pancakeswap/v3-lm-pool run hardhat run scripts/deploy2.ts --network ${network}`
+console.log(chalk.blue('Deployed lm pool'))
 
 console.log(chalk.blue('Done!'))
 

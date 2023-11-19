@@ -1,0 +1,124 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x554EA3C9689C9411e35413587006bBb9dc6D46e3",
+    "txHash": "0x9ae4e2e5bd197003dc8050b69afee1e7a74420cb878bd939425f1ae2ed01018d"
+  },
+  "proxies": [
+    {
+      "address": "0x1EF17Cbde4B1773E7004A25b24a7D1290797Bf4f",
+      "txHash": "0x737baa2fadbdb4fd8531ee730776d3e9beb75d4179321bfef76a6470aba9fcec",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x90D1B5B1a54253698b41D256a4106968FC6D9286",
+      "txHash": "0x0d75d7651616bfff6e8a7451ba5d336b9b173abb22a1f9a877d36635db03d3cd",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xc3ea90eFC8E913Afdc8317bDD716012456D7AFd7",
+      "txHash": "0x82b3dcce4155b38f6c6f1f7a7706c2dc3268538a6106f42bc1808deccf6f2ef0",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xe8d6D2Cb531e966396120383722d47A0e57DE01b",
+      "txHash": "0x15cce6271e7e109b94902a6ff72acf8f22c88e7f89f49f20e1910d271805d7ef",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6ccEd5E8DF9354F7441C867809197cE6b097F760",
+      "txHash": "0xcdcef4ef148529e3089bcc47a086183faa39e2dd9ea9e08ec7b77efdc361341e",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0A71b25ffBE351b4b1Bbe9Df9AE67efBCf51E5e7",
+      "txHash": "0x9f826b1ef1f0e69b4cf5e3e2615615fad7d713a539056de9140b2c4df3920012",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xC3B8db8ed3f308d1917c82217C254A97DE137aa8",
+      "txHash": "0x5ff7cf4179ebb75604c0b083da02d119b1de2ce82a97e6d1bd04bbd5309996fa",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xc4B9F08A6ea054d2bc06567E7B36B4B65bC21Cff",
+      "txHash": "0x4ff29c878c5fe4af1d7f8a0aec2c9313949800cc7002c29e16212c9065d8a8b9",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x2F793b9ff3139Aa37f0b1c10e6C725EA181D5EAF",
+      "txHash": "0xea5b122d564f339c7a75f22889dc99ae7bcb20161fa7ebceabc3e7862e6723d9",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x18a057F749D2FBbc851680CE444DFF11a02E652F",
+      "txHash": "0x52a08a530e0e6a271a6e72d420b2857ea447686778684e8f0a7f996e0b0d774d",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x48031fEFeb53a5aB0145391787fE35F86529f419",
+      "txHash": "0x663e41ed7bb1d71f5c18f8d53a3d6d540264460fb2a04b00d3d13c2709fb07dc",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x4613870429FbC4BC99ECD0364Cb94Ae44BA27366",
+      "txHash": "0x3adb598ece551423a839951e203705ca215ae75d8fb6348cc8c0ab3397b8b724",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0476e5F9EafA42951786b24bB52FA658b7eFFCAD",
+      "txHash": "0xf1e754c0eaca664622173ee2b3846ab5b5e060a5fab05a87f2221adcc72dd105",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x567c6048218562507DD0f1AbFbC8C6137bc6f46B",
+      "txHash": "0x4ca05a4c50d8bd28113a4963bb0b18ed426e44ff0cc4692c307b3091f2c2e244",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "2a88f0a49a9c25b1c479a31be14897cf1d01115d45ba4287ded3734b5bb356e7": {
+      "address": "0xf08B1667232EEb2510696b858A4C9283EffE1375",
+      "txHash": "0xdc7bd0258668c214a14d7f019101c17bda4e58f5c5bdb7be795b7196b4dc5d6c",
+      "layout": {
+        "solcVersion": "0.7.6",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+          },
+          {
+            "label": "_baseTokenURI",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage",
+            "contract": "NonfungibleTokenPositionDescriptorOffChain",
+            "src": "contracts/NonfungibleTokenPositionDescriptorOffChain.sol:14"
+          }
+        ],
+        "types": {
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    }
+  }
+}

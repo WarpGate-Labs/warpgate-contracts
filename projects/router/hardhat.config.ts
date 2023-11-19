@@ -52,6 +52,13 @@ const eth: NetworkUserConfig = {
   accounts: [process.env.KEY_ETH!],
 }
 
+const immutableZkevmTestnet: NetworkUserConfig = {
+  url: 'https://lb.drpc.org/ogrpc?network=immutable-zkevm-testnet&dkey=AkAljDNdFk__sE9Ct29VDJrmbBCMhT4R7qSyrkUU-y5L',
+  chainId: 13472,
+  accounts: [process.env.PRIVATE_KEY!],
+  gasPrice: 2500000007,
+}
+
 const config: HardhatUserConfig = {
   defaultNetwork: 'hardhat',
   networks: {
@@ -64,6 +71,7 @@ const config: HardhatUserConfig = {
     ...(process.env.KEY_MAINNET && { bscMainnet }),
     ...(process.env.KEY_GOERLI && { goerli }),
     ...(process.env.KEY_ETH && { eth }),
+    ...(process.env.PRIVATE_KEY && { immutableZkevmTestnet }),
     // goerli: goerli,
     // mainnet: bscMainnet,
   },
