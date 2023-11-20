@@ -58,6 +58,12 @@ const immutableZkevmTestnet: NetworkUserConfig = {
   accounts: [process.env.PRIVATE_KEY!],
   gasPrice: 2500000007,
 }
+const sepolia: NetworkUserConfig = {
+  url: 'https://rpc.notadegen.com/eth/sepolia',
+  chainId: 11155111,
+  accounts: [process.env.PRIVATE_KEY!],
+  gasPrice: 5000000007,
+}
 
 const config: HardhatUserConfig = {
   defaultNetwork: 'hardhat',
@@ -72,6 +78,7 @@ const config: HardhatUserConfig = {
     ...(process.env.KEY_GOERLI && { goerli }),
     ...(process.env.KEY_ETH && { eth }),
     ...(process.env.PRIVATE_KEY && { immutableZkevmTestnet }),
+    ...(process.env.PRIVATE_KEY && { sepolia }),
     // goerli: goerli,
     // mainnet: bscMainnet,
   },

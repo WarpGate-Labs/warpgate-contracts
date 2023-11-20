@@ -1,0 +1,79 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x386800C1CF2C6E322B21f5962BeD9Cd21F956f9B",
+    "txHash": "0x4998262f581df3edd42fb2d6353a1eb8fcf4ed03da5cecc0b89b24d9b62741a8"
+  },
+  "proxies": [
+    {
+      "address": "0xF5CF190C3891516399216f46AC5BD902925e7d47",
+      "txHash": "0xbb3865a92a65bf606380f97c213e98cefbc534410a960165141726aa62c7dea7",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x67106D775cf4DB543640248293c5fBa3D3454999",
+      "txHash": "0x572fb895c862870111f2b51457f996c24b79e7a5e826792a9ace793947021926",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6f9e7fbb5646D349D98179f9A8009f92A1A1967E",
+      "txHash": "0xfb164b617905305e6b8e2de4f321e3cb3def95f9f6d362be96baaf81ea078a8d",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xa274273Cb0E27F2D915319A65F1A4AD2ba1899ED",
+      "txHash": "0xc5616d475de83637d6d1da73660e099407b64138716a47a10cf7387106c7ebbe",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x155aD4B383699842836e488D28Aa4cb0cCBA34d8",
+      "txHash": "0xba9b3172257dc91fca3873be7d27673b11675d2145da6d71b7af532c2e5b3799",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "2a88f0a49a9c25b1c479a31be14897cf1d01115d45ba4287ded3734b5bb356e7": {
+      "address": "0x6d7EFDD34f4dB70c7BEA115b8D45a8E2C15E2829",
+      "txHash": "0x9acd4946e6253d2c8caece2e2038ab2913ab0602431ad1690d12d5391de1dc59",
+      "layout": {
+        "solcVersion": "0.7.6",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+          },
+          {
+            "label": "_baseTokenURI",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage",
+            "contract": "NonfungibleTokenPositionDescriptorOffChain",
+            "src": "contracts/NonfungibleTokenPositionDescriptorOffChain.sol:14"
+          }
+        ],
+        "types": {
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    }
+  }
+}

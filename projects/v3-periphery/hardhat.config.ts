@@ -79,7 +79,14 @@ const immutableZkevmTestnet: NetworkUserConfig = {
   url: 'https://lb.drpc.org/ogrpc?network=immutable-zkevm-testnet&dkey=AkAljDNdFk__sE9Ct29VDJrmbBCMhT4R7qSyrkUU-y5L',
   chainId: 13472,
   accounts: [process.env.PRIVATE_KEY!],
-  gasPrice: 3000000007,
+  gasPrice: 5000000007,
+}
+
+const sepolia: NetworkUserConfig = {
+  url: 'https://rpc.notadegen.com/eth/sepolia',
+  chainId: 11155111,
+  accounts: [process.env.PRIVATE_KEY!],
+  gasPrice: 5000000007,
 }
 
 export default {
@@ -92,6 +99,7 @@ export default {
     ...(process.env.KEY_GOERLI && { goerli }),
     ...(process.env.KEY_ETH && { eth }),
     ...(process.env.PRIVATE_KEY && { immutableZkevmTestnet }),
+    ...(process.env.PRIVATE_KEY && { sepolia }),
     // mainnet: bscMainnet,
   },
   etherscan: {
