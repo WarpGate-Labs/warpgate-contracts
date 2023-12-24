@@ -8,13 +8,16 @@
   ],
   "scripts": {
     "compile": "yarn workspaces run compile",
-    "test": "yarn workspaces run test"
+    "test": "yarn workspaces run test",
+    "deploy-imx": "NETWORK=immutableZkevmTestnet yarn zx v3-deploy.mjs",
+    "verify-imx": "NETWORK=immutableZkevmTestnet yarn zx v3-verify.mjs"
   },
   "devDependencies": {
-    "zx": "^7.2.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@typechain/hardhat": "^6.1.5",
+    "find-config": "^1.0.0",
     "solidity-docgen": "^0.6.0-beta.35",
-    "find-config": "^1.0.0"
+    "zx": "^7.2.0"
   },
   "volta": {
     "node": "16.19.1"

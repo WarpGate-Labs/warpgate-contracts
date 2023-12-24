@@ -77,9 +77,9 @@ const eth: NetworkUserConfig = {
 
 const immutableZkevmTestnet: NetworkUserConfig = {
   url: 'https://lb.drpc.org/ogrpc?network=immutable-zkevm-testnet&dkey=AkAljDNdFk__sE9Ct29VDJrmbBCMhT4R7qSyrkUU-y5L',
-  chainId: 13472,
+  chainId: 13473,
   accounts: [process.env.PRIVATE_KEY!],
-  gasPrice: 5000000007,
+  gasPrice: 100000000000,
 }
 
 const sepolia: NetworkUserConfig = {
@@ -103,7 +103,15 @@ export default {
     // mainnet: bscMainnet,
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY || '',
+    apiKey: {
+      bscTestnet: process.env.BSCSCAN_API_KEY,
+      bscMainnet: process.env.BSCSCAN_API_KEY,
+      goerli: process.env.ETHERSCAN_API_KEY,
+      eth: process.env.ETHERSCAN_API_KEY,
+      immutableZkevmTestnet: process.env.ETHERSCAN_API_KEY,
+      sepolia: process.env.ETHERSCAN_API_KEY,
+    },
+    chainIds: [5, 56, 97, 1, 13473, 11155111],
   },
   solidity: {
     compilers: [DEFAULT_COMPILER_SETTINGS],
