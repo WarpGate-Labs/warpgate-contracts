@@ -7,7 +7,7 @@ async function main() {
   const config = configs[networkName as keyof typeof configs]
 
   if (!config) {
-    throw new Error(`No config found for network ${networkName}`)
+    console.log(`No Config Found For network ${networkName}`)
   }
   const deployedContracts_v3_core = await import(`@pancakeswap/v3-core/deployments/${networkName}.json`)
   const deployedContracts_v3_periphery = await import(`@pancakeswap/v3-periphery/deployments/${networkName}.json`)
@@ -27,7 +27,7 @@ async function main() {
     deployedContracts_v3_periphery.NonfungiblePositionManager,
     config.stableFactory,
     config.stableInfo,
-    config.WNATIVE,
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9',
   ])
   await sleep(10000)
 
@@ -38,7 +38,7 @@ async function main() {
     deployedContracts_v3_core.PancakeV3Factory,
     config.v2Factory,
     config.stableFactory,
-    config.WNATIVE,
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9',
   ])
   await sleep(10000)
 
@@ -47,7 +47,7 @@ async function main() {
   await verifyContract(deployedContracts_smart_router.QuoterV2, [
     deployedContracts_v3_core.PancakeV3PoolDeployer,
     deployedContracts_v3_core.PancakeV3Factory,
-    config.WNATIVE,
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9',
   ])
   await sleep(10000)
 

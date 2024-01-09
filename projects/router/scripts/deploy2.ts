@@ -8,7 +8,7 @@ async function main() {
   const networkName = network.name
   const config = configs[networkName as keyof typeof configs]
   if (!config) {
-    throw new Error(`No config found for network ${networkName}`)
+    console.log(`No Config Found For network ${networkName}`)
   }
 
   const v3DeployedContracts = await import(`@pancakeswap/v3-core/deployments/${networkName}.json`)
@@ -39,7 +39,7 @@ async function main() {
     positionManager_address,
     config.stableFactory,
     config.stableInfo,
-    config.WNATIVE
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9'
   )
   console.log('SmartRouter deployed to:', smartRouter.address)
 
@@ -50,7 +50,7 @@ async function main() {
   //   positionManager_address,
   //   config.stableFactory,
   //   config.stableInfo,
-  //   config.WNATIVE,
+  //   config.WNATIVE  ,
   // ])
 
   /** MixedRouteQuoterV1 */
@@ -64,7 +64,7 @@ async function main() {
     pancakeV3Factory_address,
     config.v2Factory,
     config.stableFactory,
-    config.WNATIVE
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9'
   )
   console.log('MixedRouteQuoterV1 deployed to:', mixedRouteQuoterV1.address)
 
@@ -73,7 +73,7 @@ async function main() {
   //   pancakeV3Factory_address,
   //   config.v2Factory,
   //   config.stableFactory,
-  //   config.WNATIVE,
+  //   config.WNATIVE  ,
   // ])
 
   /** QuoterV2 */
@@ -82,10 +82,14 @@ async function main() {
       SmartRouterHelper: smartRouterHelper.address,
     },
   })
-  const quoterV2 = await QuoterV2.deploy(pancakeV3PoolDeployer_address, pancakeV3Factory_address, config.WNATIVE)
+  const quoterV2 = await QuoterV2.deploy(
+    pancakeV3PoolDeployer_address,
+    pancakeV3Factory_address,
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9'
+  )
   console.log('QuoterV2 deployed to:', quoterV2.address)
 
-  // await tryVerify(quoterV2, [pancakeV3PoolDeployer_address, pancakeV3Factory_address, config.WNATIVE])
+  // await tryVerify(quoterV2, [pancakeV3PoolDeployer_address, pancakeV3Factory_address, config.WNATIVE  ])
 
   /** TokenValidator */
   const TokenValidator = await ethers.getContractFactory('TokenValidator', {

@@ -59,10 +59,10 @@ const immutableZkevmTestnet: NetworkUserConfig = {
   gasPrice: 100000000000,
 }
 const sepolia: NetworkUserConfig = {
-  url: 'https://rpc.notadegen.com/eth/sepolia',
+  url: 'https://sepolia.drpc.org',
   chainId: 11155111,
   accounts: [process.env.PRIVATE_KEY!],
-  gasPrice: 100000000000,
+  gasPrice: 75000000000,
 }
 
 const config = {

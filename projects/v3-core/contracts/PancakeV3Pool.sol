@@ -294,12 +294,6 @@ contract PancakeV3Pool is IPancakeV3Pool {
 
         if (fee == 100) {
             slot0.feeProtocol = 216272100; // value for 3300:3300, store 2 uint32 inside
-        } else if (fee == 1500) {
-            slot0.feeProtocol = 222825800; // value for 3400:3400, store 2 uint32 inside
-        } else if (fee == 3000) {
-            slot0.feeProtocol = 209718400; // value for 3200:3200, store 2 uint32 inside
-        } else if (fee == 10000) {
-            slot0.feeProtocol = 209718400; // value for 3200:3200, store 2 uint32 inside
         }
 
         emit Initialize(sqrtPriceX96, tick);
