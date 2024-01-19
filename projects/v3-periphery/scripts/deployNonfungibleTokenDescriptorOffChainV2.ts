@@ -7,7 +7,7 @@ async function main() {
   console.log('owner', owner.address)
 
   const NonfungibleTokenPositionDescriptor = await ethers.getContractFactoryFromArtifact(NftDescriptorOffchainArtifact)
-  const baseTokenUri = 'https://nft.pancakeswap.com/v3/'
+  const baseTokenUri = 'https://assets.warpgate.pro/3b912215-5878-4516-9c86-63746ebbead0.jpg/'
   const nonfungibleTokenPositionDescriptor = await upgrades.deployProxy(NonfungibleTokenPositionDescriptor, [
     baseTokenUri,
   ])

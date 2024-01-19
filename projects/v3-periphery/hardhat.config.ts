@@ -83,10 +83,10 @@ const immutableZkevmTestnet: NetworkUserConfig = {
 }
 
 const sepolia: NetworkUserConfig = {
-  url: 'https://rpc.notadegen.com/eth/sepolia',
+  url: 'https://sepolia.infura.io/v3/a87e699e4c3f494887ff154736faef5c',
   chainId: 11155111,
   accounts: [process.env.PRIVATE_KEY!],
-  gasPrice: 5000000007,
+  gasPrice: 35000000000,
 }
 
 export default {

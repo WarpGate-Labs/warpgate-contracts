@@ -59,7 +59,7 @@ async function main() {
   const config = configs[networkName as keyof typeof configs]
 
   if (!config) {
-    throw new Error(`No config found for network ${networkName}`)
+    console.log(`No Config Found For network ${networkName}`)
   }
 
   const deployedContracts = await import(`@pancakeswap/v3-core/deployments/${networkName}.json`)
@@ -68,10 +68,14 @@ async function main() {
   const pancakeV3Factory_address = deployedContracts.PancakeV3Factory
 
   const SwapRouter = new ContractFactory(artifacts.SwapRouter.abi, artifacts.SwapRouter.bytecode, owner)
-  const swapRouter = await SwapRouter.deploy(pancakeV3PoolDeployer_address, pancakeV3Factory_address, config.WNATIVE)
+  const swapRouter = await SwapRouter.deploy(
+    pancakeV3PoolDeployer_address,
+    pancakeV3Factory_address,
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9'
+  )
   await new Promise((resolve) => setTimeout(resolve, 10000))
 
-  // await tryVerify(swapRouter, [pancakeV3PoolDeployer_address, pancakeV3Factory_address, config.WNATIVE])
+  // await tryVerify(swapRouter, [pancakeV3PoolDeployer_address, pancakeV3Factory_address, config.WNATIVE  ])
   console.log('swapRouter', swapRouter.address)
 
   // const NFTDescriptor = new ContractFactory(artifacts.NFTDescriptor.abi, artifacts.NFTDescriptor.bytecode, owner)
@@ -109,13 +113,13 @@ async function main() {
   //   owner
   // )
   // const nonfungibleTokenPositionDescriptor = await NonfungibleTokenPositionDescriptor.deploy(
-  //   config.WNATIVE,
+  //   config.WNATIVE  ,
   //   asciiStringToBytes32(config.nativeCurrencyLabel),
   //   nftDescriptorEx.address
   // )
 
   // await tryVerify(nonfungibleTokenPositionDescriptor, [
-  //   config.WNATIVE,
+  //   config.WNATIVE  ,
   //   asciiStringToBytes32(config.nativeCurrencyLabel),
   //   nftDescriptorEx.address,
   // ])
@@ -127,7 +131,7 @@ async function main() {
     artifacts.NonfungibleTokenPositionDescriptorOffChain.bytecode,
     owner
   )
-  const baseTokenUri = 'https://nft.pancakeswap.com/v3/'
+  const baseTokenUri = 'https://assets.warpgate.pro/3b912215-5878-4516-9c86-63746ebbead0.jpg/'
   const nonfungibleTokenPositionDescriptor = await upgrades.deployProxy(NonfungibleTokenPositionDescriptor, [
     baseTokenUri,
   ])
@@ -144,14 +148,14 @@ async function main() {
   const nonfungiblePositionManager = await NonfungiblePositionManager.deploy(
     pancakeV3PoolDeployer_address,
     pancakeV3Factory_address,
-    config.WNATIVE,
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9',
     nonfungibleTokenPositionDescriptor.address
   )
 
   // await tryVerify(nonfungiblePositionManager, [
   //   pancakeV3PoolDeployer_address,
   //   pancakeV3Factory_address,
-  //   config.WNATIVE,
+  //   config.WNATIVE  ,
   //   nonfungibleTokenPositionDescriptor.address,
   // ])
   console.log('nonfungiblePositionManager', nonfungiblePositionManager.address)
@@ -171,7 +175,7 @@ async function main() {
   const v3Migrator = await V3Migrator.deploy(
     pancakeV3PoolDeployer_address,
     pancakeV3Factory_address,
-    config.WNATIVE,
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9',
     nonfungiblePositionManager.address
   )
   console.log('V3Migrator', v3Migrator.address)
@@ -179,7 +183,7 @@ async function main() {
   // await tryVerify(v3Migrator, [
   //   pancakeV3PoolDeployer_address,
   //   pancakeV3Factory_address,
-  //   config.WNATIVE,
+  //   config.WNATIVE  ,
   //   nonfungiblePositionManager.address,
   // ])
 
@@ -190,10 +194,14 @@ async function main() {
   // await tryVerify(tickLens)
 
   const QuoterV2 = new ContractFactory(artifacts.QuoterV2.abi, artifacts.QuoterV2.bytecode, owner)
-  const quoterV2 = await QuoterV2.deploy(pancakeV3PoolDeployer_address, pancakeV3Factory_address, config.WNATIVE)
+  const quoterV2 = await QuoterV2.deploy(
+    pancakeV3PoolDeployer_address,
+    pancakeV3Factory_address,
+    config ? config.WNATIVE : '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9'
+  )
   console.log('QuoterV2', quoterV2.address)
 
-  // await tryVerify(quoterV2, [pancakeV3PoolDeployer_address, pancakeV3Factory_address, config.WNATIVE])
+  // await tryVerify(quoterV2, [pancakeV3PoolDeployer_address, pancakeV3Factory_address, config.WNATIVE  ])
 
   const contracts = {
     SwapRouter: swapRouter.address,

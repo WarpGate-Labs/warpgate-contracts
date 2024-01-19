@@ -9,12 +9,15 @@
   "scripts": {
     "compile": "yarn workspaces run compile",
     "test": "yarn workspaces run test",
-    "deploy-imx": "NETWORK=immutableZkevmTestnet yarn zx v3-deploy.mjs",
-    "verify-imx": "NETWORK=immutableZkevmTestnet yarn zx v3-verify.mjs"
+    "deploy-imx": "cross-env NETWORK=immutableZkevmTestnet yarn zx v3-deploy.mjs",
+    "deploy-sepolia": "cross-env NETWORK=sepolia yarn zx v3-deploy.mjs",
+    "verify-imx": "cross-env NETWORK=immutableZkevmTestnet yarn zx v3-verify.mjs",
+    "verify-sepolia": "cross-env NETWORK=sepolia yarn zx v3-verify.mjs"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@typechain/hardhat": "^6.1.5",
+    "cross-env": "^7.0.3",
     "find-config": "^1.0.0",
     "solidity-docgen": "^0.6.0-beta.35",
     "zx": "^7.2.0"

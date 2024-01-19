@@ -13,7 +13,7 @@ async function main() {
   const networkName = network.name
   const config = configs[networkName as keyof typeof configs]
   if (!config) {
-    throw new Error(`No config found for network ${networkName}`)
+    console.log(`No Config Found For network ${networkName}`)
   }
 
   const v3DeployedContracts = await import(`@pancakeswap/v3-core/deployments/${networkName}.json`)
