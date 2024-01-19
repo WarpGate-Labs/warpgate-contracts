@@ -38,10 +38,10 @@ const immutableZkevmTestnet: NetworkUserConfig = {
 }
 
 const sepolia: NetworkUserConfig = {
-  url: 'https://sepolia.drpc.org',
+  url: 'https://sepolia.infura.io/v3/a87e699e4c3f494887ff154736faef5c',
   chainId: 11155111,
   accounts: [process.env.PRIVATE_KEY!],
-  gasPrice: 75000000000,
+  gasPrice: 35000000000,
 }
 
 const config = {
