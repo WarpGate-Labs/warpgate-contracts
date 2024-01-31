@@ -288,13 +288,9 @@ contract PancakeV3Pool is IPancakeV3Pool {
             observationIndex: 0,
             observationCardinality: cardinality,
             observationCardinalityNext: cardinalityNext,
-            feeProtocol: 209718400, // default value for all pools, 3200:3200, store 2 uint32 inside
+            feeProtocol: 327685000, // default value for all pools, 3200:3200, store 2 uint32 inside
             unlocked: true
         });
-
-        if (fee == 100) {
-            slot0.feeProtocol = 216272100; // value for 3300:3300, store 2 uint32 inside
-        }
 
         emit Initialize(sqrtPriceX96, tick);
     }
@@ -858,8 +854,8 @@ contract PancakeV3Pool is IPancakeV3Pool {
     /// @inheritdoc IPancakeV3PoolOwnerActions
     function setFeeProtocol(uint32 feeProtocol0, uint32 feeProtocol1) external override lock onlyFactoryOrFactoryOwner {
         require(
-            (feeProtocol0 == 0 || (feeProtocol0 >= 1000 && feeProtocol0 <= 4000)) &&
-                (feeProtocol1 == 0 || (feeProtocol1 >= 1000 && feeProtocol1 <= 4000))
+            (feeProtocol0 == 0 || (feeProtocol0 >= 1000 && feeProtocol0 <= 5000)) &&
+                (feeProtocol1 == 0 || (feeProtocol1 >= 1000 && feeProtocol1 <= 5000))
         );
 
         uint32 feeProtocolOld = slot0.feeProtocol;

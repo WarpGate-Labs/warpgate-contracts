@@ -76,7 +76,7 @@ const eth: NetworkUserConfig = {
 }
 
 const immutableZkevmTestnet: NetworkUserConfig = {
-  url: 'https://lb.drpc.org/ogrpc?network=immutable-zkevm-testnet&dkey=AkAljDNdFk__sE9Ct29VDJrmbBCMhT4R7qSyrkUU-y5L',
+  url: 'https://wider-blue-wind.imx-testnet.quiknode.pro/3f38de94a68fde8c4c73946f2eb95cc6b831c6fa/',
   chainId: 13473,
   accounts: [process.env.PRIVATE_KEY!],
   gasPrice: 100000000000,
