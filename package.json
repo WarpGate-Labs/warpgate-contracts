@@ -10,8 +10,10 @@
     "compile": "yarn workspaces run compile",
     "test": "yarn workspaces run test",
     "deploy-imx": "cross-env NETWORK=immutableZkevmTestnet yarn zx v3-deploy.mjs",
+    "deploy-imx-mainnet": "cross-env NETWORK=immutableZkevm yarn zx v3-deploy.mjs",
     "deploy-sepolia": "cross-env NETWORK=sepolia yarn zx v3-deploy.mjs",
     "verify-imx": "cross-env NETWORK=immutableZkevmTestnet yarn zx v3-verify.mjs",
+    "verify-imx-mainnet": "cross-env NETWORK=immutableZkevm yarn zx v3-verify.mjs",
     "verify-sepolia": "cross-env NETWORK=sepolia yarn zx v3-verify.mjs"
   },
   "devDependencies": {
@@ -20,6 +22,7 @@
     "cross-env": "^7.0.3",
     "find-config": "^1.0.0",
     "solidity-docgen": "^0.6.0-beta.35",
+    "ts-node": "^10.9.2",
     "zx": "^7.2.0"
   },
   "volta": {

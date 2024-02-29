@@ -8,6 +8,7 @@ const networks = {
   bscTestnet: 'bscTestnet',
   hardhat: 'hardhat',
   immutableZkevmTestnet: 'immutableZkevmTestnet',
+  immutableZkevm: 'immutableZkevm',
   sepolia: 'sepolia',
 }
 

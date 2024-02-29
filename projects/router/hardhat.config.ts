@@ -53,13 +53,20 @@ const eth: NetworkUserConfig = {
 }
 
 const immutableZkevmTestnet: NetworkUserConfig = {
-  url: 'https://wider-blue-wind.imx-testnet.quiknode.pro/3f38de94a68fde8c4c73946f2eb95cc6b831c6fa/',
+  url: 'https://wider-blue-wind.imx-testnet.quiknode.pro//',
   chainId: 13473,
   accounts: [process.env.PRIVATE_KEY!],
   gasPrice: 100000000000,
 }
+
+const immutableZkevm: NetworkUserConfig = {
+  url: 'https://orbital-convincing-forest.imx-mainnet.quiknode.pro/',
+  chainId: 13371,
+  accounts: [process.env.PRIVATE_KEY!],
+  gasPrice: 10000000000,
+}
 const sepolia: NetworkUserConfig = {
-  url: 'https://sepolia.infura.io/v3/a87e699e4c3f494887ff154736faef5c',
+  url: 'https://sepolia.infura.io/v3/',
   chainId: 11155111,
   accounts: [process.env.PRIVATE_KEY!],
   gasPrice: 35000000000,
@@ -78,6 +85,7 @@ const config = {
     ...(process.env.KEY_GOERLI && { goerli }),
     ...(process.env.KEY_ETH && { eth }),
     ...(process.env.PRIVATE_KEY && { immutableZkevmTestnet }),
+    ...(process.env.PRIVATE_KEY && { immutableZkevm }),
     ...(process.env.PRIVATE_KEY && { sepolia }),
     // goerli: goerli,
     // mainnet: bscMainnet,
