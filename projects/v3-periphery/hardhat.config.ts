@@ -1,6 +1,6 @@
 import type { HardhatUserConfig, NetworkUserConfig } from 'hardhat/types'
 import '@nomiclabs/hardhat-ethers'
-import '@nomiclabs/hardhat-etherscan'
+import '@nomicfoundation/hardhat-verify'
 import '@nomiclabs/hardhat-waffle'
 import '@openzeppelin/hardhat-upgrades'
 import '@typechain/hardhat'
@@ -76,24 +76,30 @@ const eth: NetworkUserConfig = {
 }
 
 const immutableZkevmTestnet: NetworkUserConfig = {
-  url: 'https://wider-blue-wind.imx-testnet.quiknode.pro//',
+  url: 'https://wider-blue-wind.imx-testnet.quiknode.pro/3f38de94a68fde8c4c73946f2eb95cc6b831c6fa/',
   chainId: 13473,
   accounts: [process.env.PRIVATE_KEY!],
   gasPrice: 100000000000,
 }
 
-const immutableZkevm: NetworkUserConfig = {
-  url: 'https://orbital-convincing-forest.imx-mainnet.quiknode.pro/',
+const immutablezkEVM: NetworkUserConfig = {
+  url: 'https://orbital-convincing-forest.imx-mainnet.quiknode.pro/c936618fee68fb1f858c0a4a5461d28dd7b880a2/',
   chainId: 13371,
   accounts: [process.env.PRIVATE_KEY!],
   gasPrice: 10000000000,
 }
 
 const sepolia: NetworkUserConfig = {
-  url: 'https://sepolia.infura.io/v3/',
+  url: 'https://sepolia.infura.io/v3/a87e699e4c3f494887ff154736faef5c',
   chainId: 11155111,
   accounts: [process.env.PRIVATE_KEY!],
   gasPrice: 35000000000,
+}
+
+const m1: NetworkUserConfig = {
+  url: 'https://mevm.devnet.m1.movementlabs.xyz',
+  chainId: 336,
+  accounts: [process.env.PRIVATE_KEY!],
 }
 
 export default {
@@ -106,8 +112,10 @@ export default {
     ...(process.env.KEY_GOERLI && { goerli }),
     ...(process.env.KEY_ETH && { eth }),
     ...(process.env.PRIVATE_KEY && { immutableZkevmTestnet }),
-    ...(process.env.PRIVATE_KEY && { immutableZkevm }),
+    ...(process.env.PRIVATE_KEY && { immutablezkEVM }),
     ...(process.env.PRIVATE_KEY && { sepolia }),
+    ...(process.env.PRIVATE_KEY && { m1 }),
+
     // mainnet: bscMainnet,
   },
   etherscan: {
@@ -117,9 +125,21 @@ export default {
       goerli: process.env.ETHERSCAN_API_KEY,
       eth: process.env.ETHERSCAN_API_KEY,
       immutableZkevmTestnet: process.env.ETHERSCAN_API_KEY,
+      immutablezkEVM: process.env.ETHERSCAN_API_KEY,
       sepolia: process.env.ETHERSCAN_API_KEY,
     },
-    chainIds: [5, 56, 97, 1, 13473, 11155111],
+
+    customChains: [
+      {
+        network: 'immutablezkEVM',
+        chainId: 13371,
+        urls: {
+          apiURL: 'https://explorer.immutable.com/api',
+          browserURL: 'https://explorer.immutable.com',
+        },
+      },
+    ],
+    chainIds: [5, 56, 97, 1, 13473, 13371, 11155111],
   },
   solidity: {
     compilers: [DEFAULT_COMPILER_SETTINGS],

@@ -10,13 +10,15 @@
     "compile": "yarn workspaces run compile",
     "test": "yarn workspaces run test",
     "deploy-imx": "cross-env NETWORK=immutableZkevmTestnet yarn zx v3-deploy.mjs",
-    "deploy-imx-mainnet": "cross-env NETWORK=immutableZkevm yarn zx v3-deploy.mjs",
+    "deploy-imx-mainnet": "cross-env NETWORK=immutablezkEVM yarn zx v3-deploy.mjs",
     "deploy-sepolia": "cross-env NETWORK=sepolia yarn zx v3-deploy.mjs",
+    "deploy-moveTestnet": "cross-env NETWORK=m1 yarn zx v3-deploy.mjs",
     "verify-imx": "cross-env NETWORK=immutableZkevmTestnet yarn zx v3-verify.mjs",
-    "verify-imx-mainnet": "cross-env NETWORK=immutableZkevm yarn zx v3-verify.mjs",
+    "verify-imx-mainnet": "cross-env NETWORK=immutablezkEVM yarn zx v3-verify.mjs",
     "verify-sepolia": "cross-env NETWORK=sepolia yarn zx v3-verify.mjs"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-verify": "^2.0.4",
     "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@typechain/hardhat": "^6.1.5",
     "cross-env": "^7.0.3",
@@ -27,5 +29,8 @@
   },
   "volta": {
     "node": "16.19.1"
+  },
+  "dependencies": {
+    "hardhat": "^2.21.0"
   }
 }

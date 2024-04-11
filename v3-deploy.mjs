@@ -8,8 +8,9 @@ const networks = {
   bscTestnet: 'bscTestnet',
   hardhat: 'hardhat',
   immutableZkevmTestnet: 'immutableZkevmTestnet',
-  immutableZkevm: 'immutableZkevm',
+  immutablezkEVM: 'immutablezkEVM',
   sepolia: 'sepolia',
+  m1: 'm1',
 }
 
 let network = process.env.NETWORK
@@ -23,23 +24,23 @@ console.log(chalk.blue('Deployed core'))
 //timeout 10 sec
 await new Promise((resolve) => setTimeout(resolve, 5000))
 
-await $`yarn workspace @pancakeswap/v3-periphery run hardhat run scripts/deploy2.ts --network ${network}`
-console.log(chalk.blue('Deployed periphery'))
-await new Promise((resolve) => setTimeout(resolve, 5000))
+// await $`yarn workspace @pancakeswap/v3-periphery run hardhat run scripts/deploy2.ts --network ${network}`
+// console.log(chalk.blue('Deployed periphery'))
+// await new Promise((resolve) => setTimeout(resolve, 5000))
 
-await $`yarn workspace @pancakeswap/smart-router run hardhat run scripts/deploy2.ts --network ${network}`
-console.log(chalk.blue('Deployed router'))
-await new Promise((resolve) => setTimeout(resolve, 5000))
+// await $`yarn workspace @pancakeswap/smart-router run hardhat run scripts/deploy2.ts --network ${network}`
+// console.log(chalk.blue('Deployed router'))
+// await new Promise((resolve) => setTimeout(resolve, 5000))
 
-await $`yarn workspace @pancakeswap/masterchef-v3 run hardhat run scripts/deploy2.ts --network ${network}`
-console.log(chalk.blue('Deployed masterchef'))
-await new Promise((resolve) => setTimeout(resolve, 5000))
+// await $`yarn workspace @pancakeswap/masterchef-v3 run hardhat run scripts/deploy2.ts --network ${network}`
+// console.log(chalk.blue('Deployed masterchef'))
+// await new Promise((resolve) => setTimeout(resolve, 5000))
 
-await $`yarn workspace @pancakeswap/v3-lm-pool run hardhat run scripts/deploy2.ts --network ${network}`
-console.log(chalk.blue('Deployed lm pool'))
-await new Promise((resolve) => setTimeout(resolve, 5000))
+// await $`yarn workspace @pancakeswap/v3-lm-pool run hardhat run scripts/deploy2.ts --network ${network}`
+// console.log(chalk.blue('Deployed lm pool'))
+// await new Promise((resolve) => setTimeout(resolve, 5000))
 
-console.log(chalk.blue('Done!'))
+// console.log(chalk.blue('Done!'))
 
 const m = await fs.readJson(`./projects/masterchef-v3/deployments/${network}.json`)
 const r = await fs.readJson(`./projects/router/deployments/${network}.json`)

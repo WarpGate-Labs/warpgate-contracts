@@ -7,7 +7,8 @@ async function main() {
 
   // Verify PancakeV3PoolDeployer
   console.log('Verify PancakeV3PoolDeployer')
-  await verifyContract(deployedContracts.PancakeV3PoolDeployer)
+  const result = await verifyContract(deployedContracts.PancakeV3PoolDeployer)
+  console.log("result is verify pancakeV3PoolDeployer", result)
   await sleep(10000)
 
   // Verify pancakeV3Factory

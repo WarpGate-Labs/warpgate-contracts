@@ -14,13 +14,16 @@ async function main() {
 
   // Verify masterChefV3
   console.log("Verify masterChefV3");
-  await verifyContract(deployedContracts_masterchef_v3.MasterChefV3, [
+  const result = await verifyContract(deployedContracts_masterchef_v3.MasterChefV3, [
     config.cake,
     deployedContracts_v3_periphery.NonfungiblePositionManager,
     config.WNATIVE,
   ]);
+
+  console.log("result is ", result);
   await sleep(10000);
 }
+
 
 main()
   .then(() => process.exit(0))
