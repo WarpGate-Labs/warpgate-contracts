@@ -16,7 +16,9 @@ async function main() {
   const networkName = network.name
   console.log('owner', owner.address)
 
-  let pancakeV3PoolDeployer_address = '0xA3fB67d10BC4aC872CCa37B20647B6eB3d172362'
+  let pancakeV3PoolDeployer_address = ""
+
+  //'0xA3fB67d10BC4aC872CCa37B20647B6eB3d172362'
   let pancakeV3PoolDeployer
   const PancakeV3PoolDeployer = new ContractFactory(
     artifacts.PancakeV3PoolDeployer.abi,
@@ -31,8 +33,6 @@ async function main() {
     console.log('PancakeV3PoolDeployer deployed to:', pancakeV3PoolDeployer.address)
     pancakeV3PoolDeployer_address = pancakeV3PoolDeployer.address
     console.log('pancakeV3PoolDeployer', pancakeV3PoolDeployer_address)
-
-
   } else {
     console.log('pancakeV3PoolDeployer 2...')
 
@@ -42,10 +42,12 @@ async function main() {
       owner
     )
 
-    console.log("done deployment")
+    console.log('done deployment')
   }
 
-  let pancakeV3Factory_address = '0x9d8A9Ca3bA2e9295069b5738d1e493488f2CB871'
+  let pancakeV3Factory_address = ''
+  
+  // '0x9d8A9Ca3bA2e9295069b5738d1e493488f2CB871'
   let pancakeV3Factory
   if (!pancakeV3Factory_address) {
     const PancakeV3Factory = new ContractFactory(
