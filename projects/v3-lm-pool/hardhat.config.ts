@@ -1,6 +1,6 @@
 import { HardhatUserConfig } from 'hardhat/config'
 import '@nomicfoundation/hardhat-toolbox'
-import '@nomicfoundation/hardhat-verify'
+//import '@nomicfoundation/hardhat-verify'
 import '@typechain/hardhat'
 import 'dotenv/config'
 import { NetworkUserConfig } from 'hardhat/types'
@@ -53,10 +53,11 @@ const sepolia: NetworkUserConfig = {
 }
 
 const m1: NetworkUserConfig = {
-  url: 'https://mevm.devnet.m1.movementlabs.xyz',
+  url: 'https://mevm.internal.devnet.m1.movementlabs.xyz',
   chainId: 336,
   accounts: [process.env.PRIVATE_KEY!],
 }
+
 
 const config = {
   solidity: {

@@ -60,7 +60,7 @@ const sepolia: NetworkUserConfig = {
 };
 
 const m1: NetworkUserConfig = {
-  url: "https://mevm.devnet.m1.movementlabs.xyz",
+  url: "https://mevm.internal.devnet.m1.movementlabs.xyz",
   chainId: 336,
   accounts: [process.env.PRIVATE_KEY!],
   gasPrice: 100000000000,

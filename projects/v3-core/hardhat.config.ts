@@ -1,6 +1,6 @@
 import type { HardhatUserConfig, NetworkUserConfig } from 'hardhat/types'
 import '@nomiclabs/hardhat-ethers'
-import '@nomicfoundation/hardhat-verify'
+//import '@nomicfoundation/hardhat-verify'
 import '@nomiclabs/hardhat-waffle'
 import '@typechain/hardhat'
 import 'hardhat-watcher'
@@ -97,11 +97,11 @@ const sepolia: NetworkUserConfig = {
 }
 
 const m1: NetworkUserConfig = {
-  url: 'https://mevm.devnet.m1.movementlabs.xyz',
+  url: 'https://mevm.internal.devnet.m1.movementlabs.xyz',
   chainId: 336,
   accounts: [process.env.PRIVATE_KEY!],
-  gasPrice: 10000000000,
 }
+
 
 export default {
   networks: {

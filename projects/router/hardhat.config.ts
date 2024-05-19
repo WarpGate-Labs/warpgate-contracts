@@ -2,7 +2,7 @@ import type { HardhatUserConfig, NetworkUserConfig } from 'hardhat/types'
 import '@nomiclabs/hardhat-ethers'
 import '@nomiclabs/hardhat-web3'
 import '@nomiclabs/hardhat-truffle5'
-import '@nomicfoundation/hardhat-verify'
+//import '@nomicfoundation/hardhat-verify'
 import 'hardhat-abi-exporter'
 import 'hardhat-contract-sizer'
 import 'dotenv/config'
@@ -72,10 +72,11 @@ const sepolia: NetworkUserConfig = {
 }
 
 const m1: NetworkUserConfig = {
-  url: 'https://mevm.devnet.m1.movementlabs.xyz',
+  url: 'https://mevm.internal.devnet.m1.movementlabs.xyz',
   chainId: 336,
   accounts: [process.env.PRIVATE_KEY!],
 }
+
 
 const config = {
   defaultNetwork: 'hardhat',
