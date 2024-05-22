@@ -12,6 +12,7 @@
     "deploy-imx": "cross-env NETWORK=immutableZkevmTestnet yarn zx v3-deploy.mjs",
     "deploy-imx-mainnet": "cross-env NETWORK=immutableZkevm yarn zx v3-deploy.mjs",
     "deploy-sepolia": "cross-env NETWORK=sepolia yarn zx v3-deploy.mjs",
+    "deploy-l3Base": "cross-env NETWORK=l3Base yarn zx v3-deploy.mjs",
     "verify-imx": "cross-env NETWORK=immutableZkevmTestnet yarn zx v3-verify.mjs",
     "verify-imx-mainnet": "cross-env NETWORK=immutableZkevm yarn zx v3-verify.mjs",
     "verify-sepolia": "cross-env NETWORK=sepolia yarn zx v3-verify.mjs"

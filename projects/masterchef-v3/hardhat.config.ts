@@ -59,6 +59,13 @@ const sepolia: NetworkUserConfig = {
   gasPrice: 100000000000,
 };
 
+const l3Base: NetworkUserConfig = {
+  url: 'https://rpc.l3.3base.org',
+  chainId: 48220505331,
+  accounts: [process.env.PRIVATE_KEY!],
+  gasPrice: 35000000000,
+}
+
 const config = {
   defaultNetwork: "hardhat",
   networks: {
@@ -71,6 +78,8 @@ const config = {
     ...(process.env.PRIVATE_KEY && { immutableZkevm }),
 
     ...(process.env.PRIVATE_KEY && { sepolia }),
+    ...(process.env.PRIVATE_KEY && { l3Base })
+
     // testnet: bscTestnet,
     // mainnet: bscMainnet,
   },
